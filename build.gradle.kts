@@ -15,7 +15,7 @@ val osString = "windows"
 val lwjglNatives = "natives-${osString}"
 
 //this can be any valid tag on this repo, or a short commit id. More info at https://jitpack.io/.
-val enignetsVersion = "v1.0.1a_1"
+val enignetsVersion = "main-SNAPSHOT"
 
 val lwjglVersion = "3.2.3"
 val jomlVersion = "1.10.1"
