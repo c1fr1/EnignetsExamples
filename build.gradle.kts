@@ -16,6 +16,7 @@ val lwjglNatives = "natives-${osString}"
 
 //this can be any valid tag on this repo, or a short commit id. More info at https://jitpack.io/.
 val enignetsVersion = "main-SNAPSHOT"
+//possible alternate tag: "1.0.1a_2"
 
 val lwjglVersion = "3.2.3"
 val jomlVersion = "1.10.1"
@@ -31,9 +32,19 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+    //using Jitpack for enignets repository
     maven {
         url = uri("https://jitpack.io")
     }
+
+    //using github packages for enignets repository
+    /*maven {
+        url = uri("https://maven.pkg.github.com/c1fr1/Enignets")
+        credentials {
+            username = project.property("githubUsername").toString()
+            password = project.property("githubPAT").toString()
+        }
+    }*/
 }
 
 dependencies {
@@ -51,8 +62,8 @@ dependencies {
     runtimeOnly("org.lwjgl", "lwjgl-opengl", classifier = lwjglNatives)
     runtimeOnly("org.lwjgl", "lwjgl-stb", classifier = lwjglNatives)
 
-    implementation("com.github.c1fr1:Enignets:${enignetsVersion}")
-
+    implementation("com.github.c1fr1:Enignets:${enignetsVersion}")//using latest snapshot with Jitpack
+    //implementation("c1fr1:enignets:${enignetsVersion}")//using specific version on github packages
 }
 
 tasks.withType<KotlinCompile> {
